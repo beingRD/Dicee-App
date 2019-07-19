@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 void main() {
   return runApp(
@@ -6,6 +7,7 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
+          elevation: defaultTargetPlatform == TargetPlatform.iOS ? 0.0 : 6.0,
           title: Text('Dicee'),
           backgroundColor: Colors.red,
         ),
@@ -18,6 +20,27 @@ void main() {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Row(
+        children: [
+          Expanded(
+            child: FlatButton(
+              child: Image.asset('images/dice1.png'),
+              onPressed: () {
+                print('Left button got pressed!');
+              },
+            ),
+          ),
+          Expanded(
+            child: FlatButton(
+              child: Image.asset('images/dice1.png'),
+              onPressed: () {
+                print('Right button got pressed!');
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
